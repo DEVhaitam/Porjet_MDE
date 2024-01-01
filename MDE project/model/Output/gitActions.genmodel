@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MDE project/src" modelPluginID="MDE_project" modelName="GitActions"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>GithubActions.ecore</foreignModel>
+  <genPackages prefix="Githubaction" disposableProviderFactory="true" ecorePackage="GithubActions.ecore#/">
+    <genClasses ecoreClass="GithubActions.ecore#//MainFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//MainFile/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GithubActions.ecore#//MainFile/on"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GithubActions.ecore#//MainFile/jobs"/>
+    </genClasses>
+    <genClasses ecoreClass="GithubActions.ecore#//On">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//On/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GithubActions.ecore#//On/branch"/>
+    </genClasses>
+    <genClasses ecoreClass="GithubActions.ecore#//Branch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//Branch/name"/>
+    </genClasses>
+    <genClasses ecoreClass="GithubActions.ecore#//Jobs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GithubActions.ecore#//Jobs/jobtype"/>
+    </genClasses>
+    <genClasses ecoreClass="GithubActions.ecore#//JobType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//JobType/runsOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GithubActions.ecore#//JobType/step"/>
+    </genClasses>
+    <genClasses ecoreClass="GithubActions.ecore#//Step">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//Step/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//Step/uses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//Step/run"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//Step/env"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GithubActions.ecore#//Step/with"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
