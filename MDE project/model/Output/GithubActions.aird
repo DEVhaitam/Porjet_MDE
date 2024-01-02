@@ -4,7 +4,7 @@
     <semanticResources>GithubActions.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_mbqZ0KjuEe6IYKHVidpqgA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_nl4KMKjuEe6IYKHVidpqgA" name=" class diagram" repPath="#_nk89IKjuEe6IYKHVidpqgA" changeId="1704166522186">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_nl4KMKjuEe6IYKHVidpqgA" name=" class diagram" repPath="#_nk89IKjuEe6IYKHVidpqgA" changeId="1704172112015">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="GithubActions.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -63,6 +63,10 @@
             <children xmi:type="notation:Node" xmi:id="_Sgox0KkaEe6nSIRTJddHtQ" type="3010" element="_SepNwakaEe6nSIRTJddHtQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_Sgox0akaEe6nSIRTJddHtQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Sgox0qkaEe6nSIRTJddHtQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_-Tu5AKksEe6nSIRTJddHtQ" type="3010" element="_-RbL4qksEe6nSIRTJddHtQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_-Tu5AaksEe6nSIRTJddHtQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_-Tu5AqksEe6nSIRTJddHtQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_OfuvsajvEe6IYKHVidpqgA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_OfuvsqjvEe6IYKHVidpqgA"/>
@@ -343,6 +347,14 @@
         <target xmi:type="ecore:EAttribute" href="GithubActions.ecore#//Job/runsOn"/>
         <semanticElements xmi:type="ecore:EAttribute" href="GithubActions.ecore#//Job/runsOn"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SesREKkaEe6nSIRTJddHtQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_-RbL4qksEe6nSIRTJddHtQ" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="GithubActions.ecore#//Job/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="GithubActions.ecore#//Job/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_-Rby8KksEe6nSIRTJddHtQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
