@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<output:MainFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:output="www.testoutput.com"/>
+<output:MainFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:output="www.testoutput.com" xmi:id="_VuTyEKj2Ee6IYKHVidpqgA">
+  <on xmi:id="_XinoUKj2Ee6IYKHVidpqgA"/>
+  <jobs xmi:id="_X7mJAKj2Ee6IYKHVidpqgA">
+    <jobtype xmi:id="_Yvcn0Kj2Ee6IYKHVidpqgA">
+      <step xmi:id="_ZOBaMKj2Ee6IYKHVidpqgA"/>
+    </jobtype>
+  </jobs>
+</output:MainFile>
