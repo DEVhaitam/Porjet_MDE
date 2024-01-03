@@ -23,7 +23,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EventType">
     <eLiterals name="push" literal="push"/>
-    <eLiterals name="pull-request" value="1"/>
+    <eLiterals name="pullrequest" value="1"/>
     <eLiterals name="schedule" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnvVariable">

@@ -1,0 +1,41 @@
+package mainFile;
+
+class MainFile {
+  attr String name;
+  ref On on;
+  ref Job[*] jobs;
+}
+
+class On {
+  val Event[*] events;
+}
+
+
+
+class Event {
+  attr String name;
+  ref Branch[*] branchs;
+}
+
+class Branch {
+  attr String name;
+}
+
+class Job {
+  attr String runsOn;
+  attr String name;
+  val Step[*] steps;
+  val EnvVariable[*] envVariables;
+}
+
+class EnvVariable {
+  attr String key;
+  attr String value;
+}
+
+class Step {
+  attr String name;
+  attr String uses;
+  attr String run;
+  val EnvVariable[*] envVariables;
+}
