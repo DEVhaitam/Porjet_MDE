@@ -1,0 +1,2 @@
+[%var mainFile = MainFile.all.first();%]
+name: [%= mainFile.name %]

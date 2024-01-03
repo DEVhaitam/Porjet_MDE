@@ -1,0 +1,27 @@
+package input;
+
+
+class Event {
+  attr String name;
+  val Branch[*] branchs;
+}
+
+class Branch {
+  attr String[1] name;
+}
+
+class Input {
+  attr String[1] pipelineName;
+  val Job[*] jobs;
+  val Event[*] events;
+}
+
+class Job {
+  attr String name;
+  val EnvVariable[*] envVariables;
+}
+
+class EnvVariable {
+  attr String[1] key;
+  attr String[1] value;
+}
