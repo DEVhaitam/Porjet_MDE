@@ -1,52 +1,41 @@
 [%var mainFile = MainFile.all.first();%]
-name: [%= mainFile.name]
+name: [%= mainFile.name %]
 
 on:
-	[% for (event in mainFile.on.event) { %]
-	[%= event.eventType.toString().toLowerCase() %]:
-		branches:
-      		[% for (branch in event.branch) { %]
-      		- [%= branch.name %]
-      		[% } %]
-	[% } %]
+  [% for (event in mainFile.on.events) { %]
+  [%= event.eventType.toString().toLowerCase() %]:
+    branches:
+      [% for (branch in event.branches) { %]
+      - [%= branch.name %]
+      [% } %]
+  [% } %]
 
 jobs:
-	[% for (job in mainFile.jobs) { %]
-	
-	[%= job.name %]:
-	    runs-on: [%= job.runsOn %]
-	    [% if(job.envvariable.size()>0){%]
-	    env:
-	    	[% for (envVar in job.envvariable) { %]
-	    	[%= envVar.key %]: [%= envVar.value %]
-	    	[% } %]
-	    [% } %]
-	    
-	    [% if (job.name.equalsIgnoreCase('build')) { %]
-	    [% } %]
-	    
-	    [% if (job.name.equalsIgnoreCase('test')) { %]
-	    [% } %]
-	    
-	    
-	    [% if (job.name.equalsIgnoreCase('deploy')) { %]
-	    [% } %]
-	        
-	    steps:
-	      [% for (step in job.step) { %]
-	      - name: [%= step.name %]
-	        [% if (step.uses != null) { %]
-	        uses: [%= step.uses %]
-	        [% } %]
-	        [% if (step.run != null) { %]
-	        run: |
-	        	[%= step.run %]
-	        [% } %]
-			[% if(setp.envvariable.size()>0){%]
-			with:
-				[% for (envVar in step.envvariable) { %]
-	      		[%= envVar.key %]: [%= envVar.value %]
-	      		[% } %]			
-			[% } %]     	
-	      [% } %]
-	[% } %]
+  [% for (job in mainFile.jobs) { %]
+  [%= job.name %]:
+    runs-on: [%= job.runsOn %]
+    [% if(job.envVariables.size() > 0) { %]
+    env:
+      [% for (envVar in job.envVariables) { %]
+      [%= envVar.key %]: [%= envVar.value %]
+      [% } %]
+    [% } %]
+
+    steps:
+      [% for (step in job.steps) { %]
+      - name: [%= step.name %]
+        [% if (step.uses != null) { %]
+        uses: [%= step.uses %]
+        [% } %]
+        [% if (step.run != null) { %]
+        run: |
+          [%= step.run %]
+        [% } %]
+        [% if(step.envVariables.size() > 0) { %]
+        with:
+          [% for (envVar in step.envVariables) { %]
+          [%= envVar.key %]: [%= envVar.value %]
+          [% } %]
+        [% } %]
+      [% } %]
+  [% } %]
