@@ -1,4 +1,4 @@
-package com.example;
+package com.example.helpers;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;

@@ -12,6 +12,10 @@ jobs:
 [% for(job in mainFile.jobs){%]
     [%=job.name%]:
         runs-on: [%=job.runsOn%]
+        env:
+        [% for(env in job.envVariables){%]
+            [%=env.key%]: "[%=env.value%]"
+        [%}%]
         steps:
         [% for(step in job.steps){%]
             - name: [%=step.name%]
@@ -27,5 +31,7 @@ jobs:
                 [%=env.key%] : '[%=env.value%]'
               [%}%]
             [% } %]
+
+
         [%}%]
 [%}%]
