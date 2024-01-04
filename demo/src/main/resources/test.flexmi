@@ -1,7 +1,10 @@
 <?nsuri input?>
-<Input pipelineName="Ci">
+<Input pipelineName="CI idlhaj">
 <jobs>
 <Job name="build">
+      <envVariables>
+            <EnvVariable key="JAVA_HOME" value="11"/>
+      </envVariables>
 </Job>
 <Job name="test">
 </Job>

@@ -1,4 +1,4 @@
-name: Ci
+name: CI idlhaj
 On:
     push:
         branches:
@@ -7,6 +7,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
+            JAVA_HOME: "11"
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v2
@@ -50,16 +51,19 @@ jobs:
               uses: actions/checkout@v2
 
 
-            - name: Set up Docker
-              uses: docker/setup-docker@v2
-
-
-            - name: Deploy with Docker Compose
+            - name: Build images and Push to Docker Hub
               run: |
-                           # Pull the Docker images from Docker Hub
-                           docker-compose -f docker-compose.yml pull
-                   
-                           # Run the services using Docker Compose
-                           docker-compose -f docker-compose.yml up -d
+                   	for ser in $dir/*; do
+                   		if [ -d "$ser" ] && [ -e "$ser/Dockerfile" ]; then
+                   			ser_name=$(basename "$ser")
+                   			ser_name=${ser_name,,}
+                   			docker build -t $ser_name:latest "$ser"
+                   			docker tag $ser_name:latest ${{ secrets.DOCKERHUB_USERNAME }}/$ser_name:latest
+                   			docker push ${{ secrets.DOCKERHUB_USERNAME }}/$ser_name:latest
+                   		fi
+                   	done
+                                       
+              with:
+                dir : './'
 
 
