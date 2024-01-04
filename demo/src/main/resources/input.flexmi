@@ -1,14 +1,14 @@
 <?nsuri input?>
 <Input pipelineName="ExamplePipeline">
   <jobs>
-    <Job name="Build">
+    <Job name="build">
       <envVariables>
         <EnvVariable key="VAR1" value="value1"/>
         <EnvVariable key="VAR2" value="value2"/>
       </envVariables>
     </Job>
 
-    <Job name="Test">
+    <Job name="test">
       <envVariables>
         <EnvVariable key="VAR3" value="value3"/>
         <EnvVariable key="VAR4" value="value4"/>
