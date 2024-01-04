@@ -12,6 +12,13 @@ jobs:
 [% for(job in mainFile.jobs){%]
     [%=job.name%]:
         runs-on: [%=job.runsOn%]
+        [% if (job.envVariables.size() > 0) { %]
+        env:
+            [% for (envVar in job.envVariables){ %]
+            [%=envVar.key%]:'[%=envVar.value%]'
+            [% } %]
+        [% } %]
+
         steps:
         [% for(step in job.steps){%]
             - name: [%=step.name%]
