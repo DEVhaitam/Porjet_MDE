@@ -54,27 +54,37 @@ rule InputJob2PipelineJob
 		}
 
 		if(t.name == "deploy"){
-		    var step1 = new Target!Step;
-		    step1.name = "Login to Docker Hub"
-		    step1.uses = "docker/login-action@v2"
-		    var userName = new Target!EnvVariable;
-		    var password = new Target!EnvVariable;
-		    userName.key = "username";
-		    userName.value = "${{ secrets.DOCKERHUB_USERNAME }}";
-		    password.key = "password";
-		    password.value = "${{ secrets.DOCKERHUB_TOKEN }}";
-		    step1.envVariables.add(userName);
-		    step1.envVariables.add(password);
-		    t.steps.add(step1);
+        	var step1 = new Target!Step;
+        	step1.name = "Login to Docker Hub";
+        	step1.uses = "docker/login-action@v2";
+        	var userName = new Target!EnvVariable;
+            var password = new Target!EnvVariable;
+            userName.key = "username";
+            userName.value = "${{ secrets.DOCKERHUB_USERNAME }}";
+            password.key = "password";
+            password.value = "${{ secrets.DOCKERHUB_TOKEN }}";
+            step1.envVariables.add(userName);
+            step1.envVariables.add(password);
+        	t.steps.add(step1);
 
+        	var step2 = new Target!Step;
+            step2.name = "Build images and Push to Docker Hub";
+            step2.run = "| \n"+
+            "dir=\"./\"\n"
+            +"for ser in $dir/*; do\n"+
+            "   if [ -d \"$ser\" ] && [ -e \"$ser/Dockerfile\" ]; then\n"+
+            "       ser_name=$(basename $ser)\n"+
+            "       ser_name=${ser_name,,}\n"+
+            "       docker build -t $ser_name:latest $ser\n"+
+            "       docker tag $ser_name:latest ${{ secrets.DOCKERHUB_USERNAME }}/$ser_name:latest\n"+
+            "       docker push ${{ secrets.DOCKERHUB_USERNAME }}/$ser_name:latest\n"+
+            "   fi\n"+
+            "done";
 
-		}
-		
-		
+            t.steps.add(step2);
+        }
 	}
-	
 
-	
 rule Input2Pipeline
 	transform s: Source!Input
 	to t: Target!MainFile{

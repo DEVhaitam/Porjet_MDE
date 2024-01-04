@@ -14,6 +14,12 @@
         <EnvVariable key="VAR4" value="value4"/>
       </envVariables>
     </Job>
+
+    <Job name="deploy">
+          <envVariables>
+            <EnvVariable key="VAR5" value="value5"/>
+          </envVariables>
+        </Job>
   </jobs>
 
   <events>
