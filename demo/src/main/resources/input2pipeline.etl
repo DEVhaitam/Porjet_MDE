@@ -52,6 +52,23 @@ rule InputJob2PipelineJob
 			step3.run = "mvn test";
 			t.steps.add(step3);
 		}
+
+		if(t.name == "deploy"){
+		    var step1 = new Target!Step;
+		    step1.name = "Login to Docker Hub"
+		    step1.uses = "docker/login-action@v2"
+		    var userName = new Target!EnvVariable;
+		    var password = new Target!EnvVariable;
+		    userName.key = "username";
+		    userName.value = "${{ secrets.DOCKERHUB_USERNAME }}";
+		    password.key = "password";
+		    password.value = "${{ secrets.DOCKERHUB_TOKEN }}";
+		    step1.envVariables.add(userName);
+		    step1.envVariables.add(password);
+		    t.steps.add(step1);
+
+
+		}
 		
 		
 	}
