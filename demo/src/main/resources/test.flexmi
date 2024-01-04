@@ -1,0 +1,16 @@
+<?nsuri input?>
+<Input pipelineName="Ci">
+<jobs>
+<Job name="build">
+</Job>
+<Job name="test">
+</Job>
+<Job name="deploy">
+</Job>
+</jobs>
+<events>
+<Event eventType="push">
+     <branch name="main"/>
+</Event>
+</events>
+</Input>

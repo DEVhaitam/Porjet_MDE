@@ -1,11 +1,10 @@
-package com.example;
+package com.example.transformations;
 
 import java.io.File;
-import java.io.IOException;
 
-import org.eclipse.epsilon.emc.emf.EmfModel;
+import com.example.helpers.FileReader;
+import com.example.helpers.ModelLoader;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
-import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.etl.EtlModule;
 
 public class Model2Model {
@@ -30,7 +29,7 @@ public class Model2Model {
     private InMemoryEmfModel runTransformation(EtlModule module)
             throws Exception {
         System.out.println("runTransformation");
-        InMemoryEmfModel inputModel = ModelLoader.getInMemoryFlexmiModel(new FileReader().readFile("src/main/resources/input.flexmi"),new FileReader().readFile(".\\src\\main\\resources\\input.emf") );
+        InMemoryEmfModel inputModel = ModelLoader.getInMemoryFlexmiModel(new FileReader().readFile("src/main/resources/test.flexmi"),new FileReader().readFile(".\\src\\main\\resources\\input.emf") );
         inputModel.setName("Source");
         InMemoryEmfModel pipelineModel = ModelLoader.getBlankInMemoryModel(new FileReader().readFile("src/main/resources/pipeline.emf"));
         pipelineModel.setName("Target");
