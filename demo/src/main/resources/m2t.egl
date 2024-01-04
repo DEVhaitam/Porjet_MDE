@@ -1,2 +1,31 @@
 [%var mainFile = MainFile.all.first();%]
 name: [%= mainFile.name %]
+On:
+[% for(event in mainFile.on.events){%]
+    [%=event.name%]:
+        branches:
+        [% for(b in event.branchs){%]
+            [%=b.name%]
+        [%}%]
+[%}%]
+jobs:
+[% for(job in mainFile.jobs){%]
+    [%=job.name%]:
+        runs-on: [%=job.runsOn%]
+        steps:
+        [% for(step in job.steps){%]
+            - name: [%=step.name%]
+            [% if (step.uses != null) { %]
+              uses: [%= step.uses %]
+            [% } %]
+            [% if (step.run != null) { %]
+              run: [%= step.run %]
+            [% } %]
+            [% if (step.envVariables.size() > 0) { %]
+              with:
+              [% for(env in step.envVariables ){%]
+                [%=env.key%] : '[%=env.value%]'
+              [%}%]
+            [% } %]
+        [%}%]
+[%}%]
