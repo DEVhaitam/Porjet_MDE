@@ -49,21 +49,38 @@ rule InputJob2PipelineJob
 		}
 		
 		if(t.name == "deploy"){
-        	var step2 = new Target!Step;
-        	step2.name = "Set up Docker";
-        	step2.uses = "docker/setup-docker@v2";
-        	t.steps.add(step2);
+                	var step = new Target!Step;
+                	step.name = "Login to Docker Hub";
+                	step.uses = "docker/login-action@v2";
+                	var userName = new Target!EnvVariable;
+                    var password = new Target!EnvVariable;
+                    userName.key = "username";
+                    userName.value = "${{ secrets.DOCKERHUB_USERNAME }}";
+                    password.key = "password";
+                    password.value = "${{ secrets.DOCKERHUB_TOKEN }}";
+                    step.envVariables.add(userName);
+                    step.envVariables.add(password);
+                	t.steps.add(step1);
 
-        	var step3 = new Target!Step;
-        	step3.name = "Deploy with Docker Compose";
-        	step3.run = "|
-        # Pull the Docker images from Docker Hub
-        docker-compose -f docker-compose.yml pull
-
-        # Run the services using Docker Compose
-        docker-compose -f docker-compose.yml up -d";
-        	t.steps.add(step3);
-        }
+                	var step2 = new Target!Step;
+                    step2.name = "Build images and Push to Docker Hub";
+                    step2.run = "|
+\tfor ser in $dir/*; do
+\t\tif [ -d \"$ser\" ] && [ -e \"$ser/Dockerfile\" ]; then
+\t\t\tser_name=$(basename \"$ser\")
+\t\t\tser_name=${ser_name,,}
+\t\t\tdocker build -t $ser_name:latest \"$ser\"
+\t\t\tdocker tag $ser_name:latest ${{ secrets.DOCKERHUB_USERNAME }}/$ser_name:latest
+\t\t\tdocker push ${{ secrets.DOCKERHUB_USERNAME }}/$ser_name:latest
+\t\tfi
+\tdone
+                    ";
+                    var dir = new Target!EnvVariable;
+                    dir.key = "dir";
+                    dir.value="./";
+                    step2.envVariables.add(dir);
+                    t.steps.add(step2);
+                }
 	}
 	
 
