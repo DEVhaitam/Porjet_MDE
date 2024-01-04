@@ -28,10 +28,16 @@ jobs:
             [% if (step.run != null) { %]
               run: [%= step.run %]
             [% } %]
-            [% if (step.envVariables.size() > 0) { %]
+            [% if (step.envVariables.size() > 0 ) { %]
               with:
               [% for(env in step.envVariables ){%]
+                [% if (job.name == "deploy") { %]
+                [%=env.key%] : [%=env.value%]
+                [% } %]
+                [%else {%]
                 [%=env.key%] : '[%=env.value%]'
+                [% } %]
+
               [%}%]
             [% } %]
         [%}%]
