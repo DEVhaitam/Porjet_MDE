@@ -7,6 +7,8 @@ Welcome to our CI/CD Pipeline Generator project! This tool automates the generat
 The deployment and management of backend microservices applications, particularly those built using Maven, often pose challenges. Developers encounter significant hurdles when attempting to manually configure Continuous Integration and Continuous Deployment (CI/CD) pipelines for these applications. The complexity of integrating various tools, managing dependencies, and ensuring consistent deployment practices can lead to inefficiencies, errors, and delays in the software development lifecycle.
 # Proposed Solution:
 Automating the process of turning input, which includes data jobs and events for the CI/CD Pipeline, into a CI/CD pipeline using GitHub Actions and a model transformation language can make development quicker and easier. This helps speed up the setup of deployment pipelines for developers, making the process faster and more reliable.
+# Architecture de la solution:
+![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/architecture.png)
 
 # Meta-model input : 
 ![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/DiagramInput.png)
