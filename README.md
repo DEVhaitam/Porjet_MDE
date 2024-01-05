@@ -14,4 +14,17 @@ Automating the process of turning input, which includes data jobs and events for
 ![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/DiagramInput.png)
 
 # Meta-model Mainfile:
-![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/DiagramInput.png)
+![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/Output.png)
+# Transformation:
+In the context of model-driven engineering, model transformation aims
+to to specify how to produce target models from a set of source models. This
+allows developers to define how the elements of the source model should be used
+to initialize the elements of the target model. In our project, we used two types
+of model transformation :
+
+— Model to Model Transformation
+— Model to Text Transformation
+This table resumes the Transformation from Input Metal-model to Mainfile Meta-model and focuses on key elements of both meta-models.
+![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/trans.png)
+
+
