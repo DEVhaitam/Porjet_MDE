@@ -1,8 +1,6 @@
 # Porjet_MDE
 # Topic:
-  Model-Driven Deployment and Configuration:	- CI/CD
-=> **Goal :** Create a model-driven system that automates the deployment and configuration of applications
-![image](https://github.com/DEVhaitam/Porjet_MDE/assets/87667785/8fcf2eca-f60c-4ba3-81cb-9259a2b13115)
+
 # Introduction:
 Welcome to our CI/CD Pipeline Generator project! This tool automates the generation of Continuous Integration and Continuous Deployment (CI/CD) pipelines for backend applications built with Maven. The aim is to streamline the process of setting up robust and efficient CI/CD workflows tailored to Maven-based projects.
 # Problem Statement:
