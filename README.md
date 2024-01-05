@@ -11,7 +11,7 @@ The deployment and management of backend microservices applications, particularl
 Automating the process of turning input, which includes data jobs and events for the CI/CD Pipeline, into a CI/CD pipeline using GitHub Actions and a model transformation language can make development quicker and easier. This helps speed up the setup of deployment pipelines for developers, making the process faster and more reliable.
 
 # Meta-model input : 
-![image](https://drive.google.com/file/d/1XgcupXxjnAtlZ7eikzjRQLejNUBW9W85/view?usp=drive_link)
+![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/DiagramInput.png)
 
 # Meta-model Mainfile:
-![image](https://drive.google.com/file/d/1PCnBzeXjYDANjROVDqbJbgQ6U4CcjzTI/view?usp=drive_link)
+![image](https://github.com/DEVhaitam/Porjet_MDE/blob/main/Imgs/DiagramInput.png)
